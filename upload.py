@@ -18,9 +18,8 @@ filekey = shortuuid.uuid() + extension
 bucket = os.getenv('AWS_BUCKET')
 
 s3.upload_file(filename,bucket,filekey,ExtraArgs={
-    "ACL": "public-read",
-    "ContentType": mimetypes.guess_type(filename)[0]
+  "ACL": "public-read",
+  "ContentType": mimetypes.guess_type(filename)[0]
 })
 
 print(f'https://{bucket}.s3.amazonaws.com/{filekey}')
-
